@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://coderunner00.github.io/2017/05/01/Callbacks/index.html">
 <meta property="og:site_name" content="Eric Forsell">
 <meta property="og:description" content="Hi all – I want to write a quick post on callback functions in javascript.  A callback function (function A) is a function that is passed as a parameter to another function (function B).  When functio">
-<meta property="og:updated_time" content="2017-05-01T16:54:00.000Z">
+<meta property="og:updated_time" content="2017-05-01T16:54:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Callbacks">
 <meta name="twitter:description" content="Hi all – I want to write a quick post on callback functions in javascript.  A callback function (function A) is a function that is passed as a parameter to another function (function B).  When functio">
@@ -124,11 +124,11 @@
           <div class="article-entry " itemprop="articleBody">
             
               <p>Hi all – I want to write a quick post on callback functions in javascript.  A callback function (function A) is a function that is passed as a parameter to another function (function B).  When function B executes it executes function A in its body.  One common issue when passing functions as callbacks is the inability to pass variables to the callback function.  For example, let’s say I have two functions:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function log (name) &#123;</div><div class="line">  console.log(“Hiya, “+name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">setTimeOut (log, 500);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function log (name) &#123;</div><div class="line">  console.log(“Hiya, “+name);</div><div class="line">&#125;</div><div class="line">setTimeOut (log, 500);</div></pre></td></tr></table></figure>
 <p>In function setTimeOut, log is the argument of the callback function.  We want to run log after 500ms.  Suppose we want to output “Hiya, Eric!” after half a second.  If we write setTimeOut as:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setTimeOut(log(“Eric”), 500);</div></pre></td></tr></table></figure>
 <p>We will actually output “Hiya, Eric!” immediately because the log function will execute immediately as the argument.  Therefore, we need to wrap ‘log(“Eric”)’ in an anonymous function to be executed later:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeOut(function()&#123;</div><div class="line"></div><div class="line">log(“Eric”)&#125;, 500);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setTimeOut(function()&#123;</div><div class="line">log(“Eric”)&#125;, 500);</div></pre></td></tr></table></figure>
 <p>This will allow for our desired result of logging “Hiya, Eric!” after half a second.</p>
 <p>If we want to get truly technical about it, the setTimeOut function is simply adding “()” to the first parameter after 500 ms.  Therefore, after 500 ms the anonymous function will look like:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">  log(“Eric”)&#125;)();</div></pre></td></tr></table></figure>
@@ -140,7 +140,7 @@
           
 
           <footer class="article-footer">
-            <a data-url="https://coderunner00.github.io/2017/05/01/Callbacks/" data-id="cj26d78150001k1oxk3m55wes" class="article-share-link">Share</a>
+            <a data-url="https://coderunner00.github.io/2017/05/01/Callbacks/" data-id="cj26d85ih0001knoxa4sxpeyd" class="article-share-link">Share</a>
             
             
           </footer>
