@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderunner00.github.io/"/>
-  <updated>2017-05-01T16:51:09.000Z</updated>
+  <updated>2017-05-01T16:53:04.000Z</updated>
   <id>https://coderunner00.github.io/</id>
   
   <author>
@@ -20,17 +20,17 @@
     <link href="https://coderunner00.github.io/2017/05/01/Callbacks/"/>
     <id>https://coderunner00.github.io/2017/05/01/Callbacks/</id>
     <published>2017-05-01T16:02:46.000Z</published>
-    <updated>2017-05-01T16:51:09.000Z</updated>
+    <updated>2017-05-01T16:53:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>Hi all – I want to write a quick post on callback functions in javascript.  A callback function (function A) is a function that is passed as a parameter to another function (function B).  When function B executes it executes function A in its body.  One common issue when passing functions as callbacks is the inability to pass variables to the callback function.  For example, let’s say I have two functions:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function log (name) &#123;</div><div class="line"></div><div class="line">console.log(“Hiya, “+name);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">setTimeOut (log, 500);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function log (name) &#123;</div><div class="line">  console.log(“Hiya, “+name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">setTimeOut (log, 500);</div></pre></td></tr></table></figure>
 <p>In function setTimeOut, log is the argument of the callback function.  We want to run log after 500ms.  Suppose we want to output “Hiya, Eric!” after half a second.  If we write setTimeOut as:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setTimeOut(log(“Eric”), 500);</div></pre></td></tr></table></figure>
 <p>We will actually output “Hiya, Eric!” immediately because the log function will execute immediately as the argument.  Therefore, we need to wrap ‘log(“Eric”)’ in an anonymous function to be executed later:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeOut(function()&#123;</div><div class="line"></div><div class="line">log(“Eric”)&#125;, 500);</div></pre></td></tr></table></figure>
 <p>This will allow for our desired result of logging “Hiya, Eric!” after half a second.</p>
 <p>If we want to get truly technical about it, the setTimeOut function is simply adding “()” to the first parameter after 500 ms.  Therefore, after 500 ms the anonymous function will look like:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line"></div><div class="line">log(“Eric”)&#125;)()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">  log(“Eric”)&#125;)();</div></pre></td></tr></table></figure>
 <p>Then, the inside of the anonymous function will run and the log function will output “Hiya, Eric!”.</p>
 ]]></content>
     
