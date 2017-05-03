@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderunner00.github.io/"/>
-  <updated>2017-05-01T16:55:09.000Z</updated>
+  <updated>2017-05-03T02:45:18.000Z</updated>
   <id>https://coderunner00.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>post</title>
+    <link href="https://coderunner00.github.io/2017/05/02/post/"/>
+    <id>https://coderunner00.github.io/2017/05/02/post/</id>
+    <published>2017-05-03T02:40:00.000Z</published>
+    <updated>2017-05-03T02:45:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hi there!</p>
+<p>I’m going to build a very simple Node server and explain the process along the way.  In our basic server file, the first line we want to use is<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var http = require(‘http’);</div></pre></td></tr></table></figure></p>
+<p>This sets Node’s ‘http’ library and its ensuing capabilities onto the variable ‘http’.  I won’t go into the details of this library but basically this library handles the http protocol in a much more user-friendly way than with plain javascript.</p>
+<p>Once we have loaded our http module, the next step is to decide the ip address and port we want our server to listen on.  Remember, this server is being run on our local machine but it needs to have an entry point for client’s to access it.  You’ll notice I’m adding the prior section’s content to the current code;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var http = require(‘http’);</div><div class="line"></div><div class="line">var ip = ‘127.0.0.1’;</div><div class="line"></div><div class="line">var port = 3000;</div></pre></td></tr></table></figure></p>
+<p>Now, we have the ability to create a running server on <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> but we have no actual server running.  We need to use the http module we imported.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var http = require(‘http’);</div><div class="line"></div><div class="line">var ip = ‘127.0.0.1’;</div><div class="line"></div><div class="line">var port = 3000;</div><div class="line"></div><div class="line">var server = http.createServer(function(request, response) &#123;</div><div class="line"></div><div class="line">response.end(“Successfully created a connection!”);</div><div class="line"></div><div class="line">)&#125;;</div></pre></td></tr></table></figure></p>
+<p>We are almost there!  Here we created a server that takes in the request and response.  It responds with “Successfully created a connection!”  Of course, a real server would actually check the request for its type and endpoint.  For our purposes, this creates a running server.  We aren’t done yet though.  How does the server variable know where to “listen” for requests from our client?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var http = require(‘http’);</div><div class="line"></div><div class="line">var ip = ‘127.0.0.1’;</div><div class="line"></div><div class="line">var port = 3000;</div><div class="line"></div><div class="line">var server = http.createServer(function(request, response) &#123;</div><div class="line"></div><div class="line">response.end(“Successfully created a connection!”);</div><div class="line"></div><div class="line">)&#125;;</div><div class="line"></div><div class="line">server.listen(port, ip);</div></pre></td></tr></table></figure></p>
+<p>We have to listen on the port and ip address we specified above!  In order to get this server up and off the ground we need to start it in our terminal.  To do that, go to the directory where your server.js file is located.  Then run, ‘npm start’ in your terminal.  This will initialize the server.  To connect your server in your browser, type in <a href="http://127.0.01:3000" target="_blank" rel="external">http://127.0.01:3000</a> in your browser.  You will know your server is running if this page doesn’t display an error.  Good luck!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hi there!&lt;/p&gt;
+&lt;p&gt;I’m going to build a very simple Node server and explain the process along the way.  In our basic server file, the first
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Callbacks</title>
