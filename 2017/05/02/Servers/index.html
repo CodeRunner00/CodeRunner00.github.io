@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Blog: 2017/5 | Eric Forsell</title>
+  <title>Servers | Eric Forsell</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Eric Forsell">
-<meta property="og:url" content="https://coderunner00.github.io/blog/2017/05/index.html">
+  <meta name="description" content="Hi there! I’m going to build a very simple Node server and explain the process along the way.  In our basic server file, the first line we want to use is1var http = require(‘http’); This sets Node’s ‘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servers">
+<meta property="og:url" content="https://coderunner00.github.io/2017/05/02/Servers/index.html">
 <meta property="og:site_name" content="Eric Forsell">
+<meta property="og:description" content="Hi there! I’m going to build a very simple Node server and explain the process along the way.  In our basic server file, the first line we want to use is1var http = require(‘http’); This sets Node’s ‘">
+<meta property="og:updated_time" content="2017-05-03T02:46:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eric Forsell">
+<meta name="twitter:title" content="Servers">
+<meta name="twitter:description" content="Hi there! I’m going to build a very simple Node server and explain the process along the way.  In our basic server file, the first line we want to use is1var http = require(‘http’); This sets Node’s ‘">
 
   
     <link rel="alternate" href="/atom.xml" title="Eric Forsell" type="application/atom+xml" />
@@ -87,14 +91,11 @@
 
 
   <div id="main-container">
-    <div class="container">
+    
+<div class="container">
   <div class="row">
     <div class="col s12">
 
-      
-
-      
-        
 
       <article id="post-Servers" class="article article-type-post" itemscope itemprop="blogPost">
 
@@ -105,8 +106,8 @@
           
               
   
-    <h1 itemprop="name" class="header">
-      <a class="article-title " href="/2017/05/02/Servers/">Servers</a>
+    <h1 class="article-title header" itemprop="name">
+      Servers
     </h1>
   
 
@@ -144,77 +145,28 @@
         </div>
 
         
-      </article>
-
-
-      
-
-
-
-
-      
-        
-
-      <article id="post-Callbacks" class="article article-type-post" itemscope itemprop="blogPost">
-
-        <div class="article-inner">
           
+<nav id="article-nav" class="white">
+  <div class="nav-wrapper">
+    <ul class="row">
+    
 
-          <header class="article-header">
-          
-              
-  
-    <h1 itemprop="name" class="header">
-      <a class="article-title " href="/2017/05/01/Callbacks/">Callbacks</a>
-    </h1>
-  
+    
+      <li class="col s6">
+        <a href="/2017/05/01/Callbacks/" id="article-nav-older" class="article-nav-link-wrap grey-text text-darken-1 right-align truncate">
+          <span class="article-nav-title">Callbacks</span>
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      </li>
+    
 
+    </ul>
+  </div>
+</nav>
 
-          
-
-            <div class="article-meta">
-              <i class="fa fa-calendar"></i>
-              <time datetime="2017-05-01T16:02:46.000Z" itemprop="datePublished">May 01, 2017</time>
-            </div>
-          </header>
-
-
-          <div class="article-entry " itemprop="articleBody">
-            
-              <p>Hi all – I want to write a quick post on callback functions in javascript.  A callback function (function A) is a function that is passed as a parameter to another function (function B).  When function B executes it executes function A in its body.  One common issue when passing functions as callbacks is the inability to pass variables to the callback function.  For example, let’s say I have two functions:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function log (name) &#123;</div><div class="line">  console.log(“Hiya, “+name);</div><div class="line">&#125;</div><div class="line">setTimeOut (log, 500);</div></pre></td></tr></table></figure>
-<p>In function setTimeOut, log is the argument of the callback function.  We want to run log after 500ms.  Suppose we want to output “Hiya, Eric!” after half a second.  If we write setTimeOut as:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setTimeOut(log(“Eric”), 500);</div></pre></td></tr></table></figure>
-<p>We will actually output “Hiya, Eric!” immediately because the log function will execute immediately as the argument.  Therefore, we need to wrap ‘log(“Eric”)’ in an anonymous function to be executed later:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setTimeOut(function()&#123;</div><div class="line">log(“Eric”)&#125;, 500);</div></pre></td></tr></table></figure>
-<p>This will allow for our desired result of logging “Hiya, Eric!” after half a second.</p>
-<p>If we want to get truly technical about it, the setTimeOut function is simply adding “()” to the first parameter after 500 ms.  Therefore, after 500 ms the anonymous function will look like:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">  log(“Eric”)&#125;)();</div></pre></td></tr></table></figure>
-<p>Then, the inside of the anonymous function will run and the log function will output “Hiya, Eric!”.</p>
-
-            
-          </div>
-
-          
-
-          <footer class="article-footer">
-            <a data-url="https://coderunner00.github.io/2017/05/01/Callbacks/" data-id="cj28ds9si0001qhox14jt17ac" class="article-share-link">Share</a>
-            
-            
-          </footer>
-
-        </div>
 
         
       </article>
-
-
-      
-
-
-
-
-      
 
 
       
@@ -224,6 +176,10 @@
     </div>
   </div>
 </div>
+
+
+  
+
 
 
   </div>
