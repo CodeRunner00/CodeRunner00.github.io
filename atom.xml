@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderunner00.github.io/"/>
-  <updated>2017-05-15T20:19:15.000Z</updated>
+  <updated>2017-05-15T20:21:27.000Z</updated>
   <id>https://coderunner00.github.io/</id>
   
   <author>
@@ -20,13 +20,12 @@
     <link href="https://coderunner00.github.io/2017/05/14/AngularJS/"/>
     <id>https://coderunner00.github.io/2017/05/14/AngularJS/</id>
     <published>2017-05-14T21:12:02.000Z</published>
-    <updated>2017-05-15T20:19:15.000Z</updated>
+    <updated>2017-05-15T20:21:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>Hi there!</p>
 <p>I want to briefly talk about two important concepts in AngularJS.</p>
-<p>Directives:</p>
-<p>In AngularJS directives are HTML-like attributes that start with ng.  AngularJS provides a lot of functionality with these directives by adding them into DOM elements.  Two that come in particularly handy are ng-repeat, which allows you to produce any number of DOM elements in real-time, and ng-model.  Ng-model allows you to display data directly to the DOM from a controller.</p>
-<p>Dependency Injection:  Another great feature of AngularJS involves dependency injection.  With dependency injection, you are able to add just the services you need to your app.  This modularizes your code and reduces overhead.  For example, to make an http request in an AngularJS application you just need to add “$http” to the function definition.</p>
+<p>Directives:<br> In AngularJS directives are HTML-like attributes that start with ng.  AngularJS provides a lot of functionality with these directives by adding them into DOM elements.  Two that come in particularly handy are ng-repeat, which allows you to produce any number of DOM elements in real-time, and ng-model.  Ng-model allows you to display data directly to the DOM from a controller.</p>
+<p>Dependency Injection:<br> Another great feature of AngularJS involves dependency injection.  With dependency injection, you are able to add just the services you need to your app.  This modularizes your code and reduces overhead.  For example, to make an http request in an AngularJS application you just need to add “$http” to the function definition.</p>
 <p><a href="https://www.youtube.com/watch?v=i9MHigUZKEM" target="_blank" rel="external">Great AngularJS Starter</a></p>
 ]]></content>
     
@@ -34,8 +33,7 @@
     
       &lt;p&gt;Hi there!&lt;/p&gt;
 &lt;p&gt;I want to briefly talk about two important concepts in AngularJS.&lt;/p&gt;
-&lt;p&gt;Directives:&lt;/p&gt;
-&lt;p&gt;In AngularJS directives are 
+&lt;p&gt;Directives:&lt;br&gt; In AngularJS directives are HTM
     
     </summary>
     
